@@ -48,7 +48,7 @@ const Booking = () => {
 
             <div className="container" style={{ "height" : "70vh" }}>
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12" style={{ "overflowX":'auto' }}>
                         <table className="table">
                             <thead className="thead-dark">
                                 <tr>

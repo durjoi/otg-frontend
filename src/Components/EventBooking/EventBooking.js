@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
+import './EventBooking.css';
 
 const EventBooking = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -40,8 +41,8 @@ const EventBooking = () => {
 
 
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
-            <div className="card" style={{ width:'30%' }}>
+        <div className="d-flex justify-content-center align-items-center booking">
+            <div className="card booking_card">
                 <div className="card-body text-left">
                     <h5 className="card-title text-center">Book an Event</h5>
                     <form onSubmit={handleSubmit(onSubmit)} className="text-left">

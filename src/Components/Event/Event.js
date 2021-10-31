@@ -5,7 +5,7 @@ import './Event.css'
 
 const Event = () => {
 
-    const [ events ] = useEvent();
+    const [ events, loading ] = useEvent();
 
 
     return (
@@ -22,6 +22,7 @@ const Event = () => {
             <div className="container pt-5 pb-5">
                 <div className="row">
                 {
+                    !loading ? <div class="spinner-border text-warning m-auto"></div> :
                     events.map(event => <EventItem key={event._id} _id={event._id} title={event.title} img={event.img} subtitle={event.subtitle} price={event.price}></EventItem>)
                 }
                 </div>

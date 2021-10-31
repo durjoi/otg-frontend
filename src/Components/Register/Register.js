@@ -21,7 +21,7 @@ const Register = () => {
     return (
         
         <div className="d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
-            <div className="card" style={{ width:'30%' }}>
+            <div className="card booking_card">
                 <div className="card-body">
                     <h5 className="card-title text-center">Register</h5>
                     <button className="btn btn-info w-100 mt-2 mb-2" onClick={handleGoogleLogin}>Sign In with Google</button>
