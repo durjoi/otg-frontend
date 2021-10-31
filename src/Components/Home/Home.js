@@ -1,13 +1,9 @@
 import React from 'react';
 import useEvent from '../../Hooks/useEvent';
 import EventItem from '../EventItem/EventItem';
-import './Event.css'
 
-const Event = () => {
-
+const Home = () => {
     const [ events ] = useEvent();
-
-
     return (
         <section>
             <div className="events_header">
@@ -30,4 +26,4 @@ const Event = () => {
     );
 };
 
-export default Event;
+export default Home;

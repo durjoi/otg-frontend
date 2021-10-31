@@ -1,22 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import useEvent from '../../Hooks/useEvent';
 
-const Booking = () => {
-    const [bookings, setBookings] = useState([]);
+const EventManagement = () => {
+    const [events, setEvents] = useEvent([]);
 
-    useEffect(() => {
-        axios.get('https://floating-crag-86254.herokuapp.com/bookings').then((response) => {
-            setBookings(response.data);
-        });
-    },[])
-
-    const handleDelete = (booking_id) => {
-        const confirm = window.confirm("Want to Delete this Booking?");
+    const handleDelete = (event_id) => {
+        const confirm = window.confirm("Want to Delete this Event?");
         if(confirm) {
-            axios.delete(`https://floating-crag-86254.herokuapp.com/bookings/${booking_id}`)
+            axios.delete(`https://floating-crag-86254.herokuapp.com/events/${event_id}`)
                 .then(() => {
-                    setBookings([...bookings.filter(b => b._id !== booking_id)]);
-                    alert("Booking deleted!");
+                    setEvents([...events.filter(b => b._id !== event_id)]);
+                    alert("Event deleted!");
             });
         }
         
@@ -28,7 +23,7 @@ const Booking = () => {
                 <div className="container h-100">
                     <div className="row h-100">
                         <div className="col-md-12 text-center d-flex justify-content-center align-items-center">
-                            <h2>All Booking</h2>
+                            <h2>All Events</h2>
                         </div>
                     </div>
                 </div>
@@ -40,23 +35,25 @@ const Booking = () => {
                     <table className="table">
                         <thead className="thead-dark">
                             <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Event</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Subtitle</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                bookings.map(booking => {
+                                events.map(event => {
                                     return (
-                                        <tr key={booking._id}>
-                                            <td>{booking.name}</td>
-                                            <td>{booking.event}</td>
-                                            <td>{booking.price}</td>
-                                            <td>{booking.status}</td>
-                                            <td><button onClick={() => handleDelete(booking._id)}>Delete</button></td>
+                                        <tr key={event._id}>
+                                            <td>{event.title}</td>
+                                            <td>{event.subtitle}</td>
+                                            <td>{event.description}</td>
+                                            <td>{event.price}</td>
+                                            <td>{event.img}</td>
+                                            <td><button onClick={() => handleDelete(event._id)}>Delete</button></td>
                                         </tr>
                                     )
                                 })
@@ -71,4 +68,4 @@ const Booking = () => {
     );
 };
 
-export default Booking;
+export default EventManagement;

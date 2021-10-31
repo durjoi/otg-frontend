@@ -11,6 +11,10 @@ import Register from './Components/Register/Register';
 import CreateEvent from './Components/CreateEvent/CreateEvent';
 import Event from './Components/Event/Event';
 import MyBooking from './Components/MyBooking/MyBooking';
+import EventBooking from './Components/EventBooking/EventBooking';
+import BookingSuccess from './Components/BookingSuccess/BookingSuccess';
+import Home from './Components/Home/Home';
+import EventManagement from './Components/EventManagement/EventManagement';
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
         <Header></Header>
         <main>
           <Switch>
+            <Route exact path='/'>
+              <Home></Home>
+            </Route>
+
             <Route exact path='/login'>
               <Login></Login>
             </Route>
@@ -32,9 +40,18 @@ function App() {
               <Event></Event>
             </Route>
 
+            <Route exact path='/booking/success'>
+              <BookingSuccess></BookingSuccess>
+            </Route>
+
             <PrivateRoute path="/event/create">
                 <CreateEvent></CreateEvent>
             </PrivateRoute>
+
+            <PrivateRoute path="/event/manage">
+                <EventManagement></EventManagement>
+            </PrivateRoute>
+
 
             <PrivateRoute exact path="/booking/:user_id">
                 <MyBooking></MyBooking>
@@ -42,6 +59,10 @@ function App() {
 
             <PrivateRoute exact path="/booking">
                 <Booking></Booking>
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/book/event/:event_id">
+                <EventBooking></EventBooking>
             </PrivateRoute>
 
           </Switch>
