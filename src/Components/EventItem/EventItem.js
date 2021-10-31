@@ -13,7 +13,7 @@ const EventItem = ({title, img, _id, subtitle, price}) => {
 
             <div className="card-body">
                 <h5 className="card-title upcomming-events-item-title">
-                    <a href="{{ route('frontend.events.show', $item->id) }}" className="reset-link">{title}</a>
+                    <NavLink className="reset-link" to={`/event/${_id}`}><h3>{title}</h3></NavLink>
                 </h5>
             <p className="card-text upcomming-events-item-subtitle txt-grey">{ subtitle }</p>
             <NavLink to={`/book/event/${_id}`} className="event_item_booking_btn">Book Now</NavLink>
