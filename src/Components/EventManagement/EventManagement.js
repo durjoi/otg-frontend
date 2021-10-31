@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useEvent from '../../Hooks/useEvent';
 
 const EventManagement = () => {

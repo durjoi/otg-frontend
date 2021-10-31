@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 
 const CreateEvent = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
         axios.post('https://floating-crag-86254.herokuapp.com/events', data)
         .then((response) => {
