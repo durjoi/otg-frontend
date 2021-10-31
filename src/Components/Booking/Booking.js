@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 
 const Booking = () => {
     const [bookings, setBookings] = useState([]);
+    const [count , setCount] = useState(0);
 
     useEffect(() => {
         axios.get('https://floating-crag-86254.herokuapp.com/bookings').then((response) => {
             setBookings(response.data);
         });
-    },[])
+    },[count])
 
     const handleDelete = (booking_id) => {
         const confirm = window.confirm("Want to Delete this Booking?");
@@ -19,6 +20,17 @@ const Booking = () => {
                     alert("Booking deleted!");
             });
         }
+        
+    }
+
+    const handleConfirm = (booking_id) => {
+        
+        axios.put(`https://floating-crag-86254.herokuapp.com/bookings/${booking_id}`)
+            .then(() => {
+                alert("Booking Confirmed!");
+                const updatedBooking = bookings.filter(b => b._id === booking_id);
+                setCount(count+1);
+        });
         
     }
 
@@ -56,7 +68,12 @@ const Booking = () => {
                                             <td>{booking.event}</td>
                                             <td>{booking.price}</td>
                                             <td>{booking.status}</td>
-                                            <td><button onClick={() => handleDelete(booking._id)}>Delete</button></td>
+                                            <td>
+                                                <button onClick={() => handleDelete(booking._id)}>Delete</button>
+                                                {
+                                                    (booking.status === 'Pending') ? <button onClick={() => handleConfirm(booking._id)}>Confirm</button> : ''
+                                                }
+                                            </td>
                                         </tr>
                                     )
                                 })
