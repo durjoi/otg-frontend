@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './EventItem.css';
 
 const EventItem = ({title, img, _id, subtitle, price}) => {
@@ -8,10 +9,10 @@ const EventItem = ({title, img, _id, subtitle, price}) => {
                 {/* <img src={img} alt="" /> */}
                 
                 <div className="event_item_content">
-                    <h3>{title}</h3>
+                    <h3><NavLink to={`/event/${_id}`} className="event_item_booking_btn">{title}</NavLink></h3>
                     <p>{subtitle}</p>
                     <p><small>BDT {price} per person</small></p>
-                    <a href={`/book/event/${_id}`} className="event_item_booking_btn">Book Now</a>
+                    <NavLink to={`/book/event/${_id}`} className="event_item_booking_btn">Book Now</NavLink>
                 </div>
                 
             </div>
