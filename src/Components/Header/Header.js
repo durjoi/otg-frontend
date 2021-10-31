@@ -16,11 +16,25 @@ const Header = () => {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className='nav-link' to='/'>Home</NavLink>
+                            <NavLink className='nav-link' exact to='/'>Home</NavLink>
                         </li>
+
                         <li className="nav-item">
-                            <NavLink className='nav-link' to='/booking'>bookings</NavLink>
+                            <NavLink className='nav-link' exact to='/event'>Events</NavLink>
                         </li>
+                        
+                        <li className="nav-item">
+                            <NavLink className='nav-link' exact to='/booking'>All Bookings</NavLink>
+                        </li>
+
+                        <li className="nav-item">
+                            <NavLink className='nav-link' to='/event/create'>Add New Event</NavLink>
+                        </li>
+                        {
+                            user.email &&  <li className="nav-item">
+                                <NavLink className='nav-link' exact to={`/booking/${user.uid}`}>My Bookings</NavLink>
+                            </li>
+                        }
                         {
                             !user.email &&  <li className="nav-item">
                             <NavLink className='nav-link' to='/login'>Login</NavLink>

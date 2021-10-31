@@ -8,6 +8,9 @@ import Header from './Components/Header/Header';
 import Login from './Components/Login/Login';
 import Footer from './Components/Footer/Footer';
 import Register from './Components/Register/Register';
+import CreateEvent from './Components/CreateEvent/CreateEvent';
+import Event from './Components/Event/Event';
+import MyBooking from './Components/MyBooking/MyBooking';
 
 function App() {
   return (
@@ -25,7 +28,19 @@ function App() {
               <Register></Register>
             </Route>
 
-            <PrivateRoute path="/booking">
+            <Route exact path='/event'>
+              <Event></Event>
+            </Route>
+
+            <PrivateRoute path="/event/create">
+                <CreateEvent></CreateEvent>
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/booking/:user_id">
+                <MyBooking></MyBooking>
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/booking">
                 <Booking></Booking>
             </PrivateRoute>
 
