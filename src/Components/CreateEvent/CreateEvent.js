@@ -18,7 +18,7 @@ const CreateEvent = () => {
 
 
     return (
-        <div className="booking d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
+        <div className="booking d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
             <div className="card booking_card" >
                 <div className="card-body text-left">
                     <h5 className="card-title text-center">Create New Event</h5>

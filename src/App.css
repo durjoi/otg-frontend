@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Rubik:ital,wght@0,400;0,500;1,700&display=swap');
+
+/* font-family: 'Nothing You Could Do', cursive; */
+
+
+/* font-family: 'Rubik', sans-serif; */
+
 .App {
   text-align: center;
 }
@@ -26,6 +33,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 900;
 }
 
 @keyframes App-logo-spin {
