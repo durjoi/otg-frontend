@@ -27,7 +27,7 @@ const Booking = () => {
         
         axios.put(`https://floating-crag-86254.herokuapp.com/bookings/${booking_id}`)
             .then(() => {
-                alert("Booking Confirmed!");
+                alert("Booking Approved!");
                 const updatedBooking = bookings.filter(b => b._id === booking_id);
                 setCount(count+1);
         });
@@ -49,42 +49,42 @@ const Booking = () => {
             <div className="container" style={{ "height" : "70vh" }}>
                 <div className="row">
                     <div className="col-md-12">
-                    <table className="table">
-                        <thead className="thead-dark">
-                            <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Event</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                bookings.map(booking => {
-                                    return (
-                                        <tr key={booking._id}>
-                                            <td>{booking.name}</td>
-                                            <td>{booking.email}</td>
-                                            <td>{booking.phone}</td>
-                                            <td>{booking.address}</td>
-                                            <td>{booking.event}</td>
-                                            <td>{booking.price}</td>
-                                            <td>{booking.status}</td>
-                                            <td>
-                                                <button onClick={() => handleDelete(booking._id)}>Delete</button>
-                                                {
-                                                    (booking.status === 'Pending') ? <button onClick={() => handleConfirm(booking._id)}>Confirm</button> : ''
-                                                }
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
+                        <table className="table">
+                            <thead className="thead-dark">
+                                <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Event</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    bookings.map(booking => {
+                                        return (
+                                            <tr key={booking._id}>
+                                                <td>{booking.name}</td>
+                                                <td>{booking.email}</td>
+                                                <td>{booking.phone}</td>
+                                                <td>{booking.address}</td>
+                                                <td>{booking.event}</td>
+                                                <td>{booking.price}</td>
+                                                <td>{booking.status}</td>
+                                                <td>
+                                                    <button onClick={() => handleDelete(booking._id)}>Delete</button>
+                                                    {
+                                                        (booking.status === 'Pending') ? <button onClick={() => handleConfirm(booking._id)}>Approved</button> : ''
+                                                    }
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
                         </table>
                     </div> 
                 </div>

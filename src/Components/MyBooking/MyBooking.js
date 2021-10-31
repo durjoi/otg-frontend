@@ -12,6 +12,18 @@ const Booking = () => {
         });
     },[])
 
+    const handleDelete = (booking_id) => {
+        const confirm = window.confirm("Want to Cancel this Booking?");
+        if(confirm) {
+            axios.delete(`https://floating-crag-86254.herokuapp.com/bookings/${booking_id}`)
+                .then(() => {
+                    setBookings([...bookings.filter(b => b._id !== booking_id)]);
+                    alert("Booking deleted!");
+            });
+        }
+        
+    }
+
     return (
         <section>
             <div className="events_header">
@@ -37,6 +49,7 @@ const Booking = () => {
                                 <th scope="col">Event</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +64,9 @@ const Booking = () => {
                                                 <td>{booking.event}</td>
                                                 <td>{booking.price}</td>
                                                 <td>{booking.status}</td>
+                                                <td>
+                                                    <button onClick={() => handleDelete(booking._id)}>Cancel</button>
+                                                </td>
                                             </tr>
                                         )
                                     })
