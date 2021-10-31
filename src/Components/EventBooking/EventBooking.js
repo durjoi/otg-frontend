@@ -46,11 +46,6 @@ const EventBooking = () => {
                     <h5 className="card-title text-center">Book an Event</h5>
                     <form onSubmit={handleSubmit(onSubmit)} className="text-left">
                         <div className="mb-3">
-                            <label for="exampleFormControlInput1" className="form-label">Name</label>
-                            <input type="text" className="form-control" defaultValue={user.displayName} {...register("name")} required />
-                        </div>
-                        
-                        <div className="mb-3">
                             <label for="exampleFormControlInput1" className="form-label">Event Title</label>
                             <input type="text" className="form-control" defaultValue={event.title}  {...register("event")} required readOnly />
                         </div>
@@ -58,6 +53,26 @@ const EventBooking = () => {
                         <div className="mb-3">
                             <label for="exampleFormControlInput1" className="form-label">Price</label>
                             <input type="number" className="form-control" defaultValue={event.price}  {...register("price")} required readOnly/>
+                        </div>
+
+                        <div className="mb-3">
+                            <label for="exampleFormControlInput1" className="form-label">Name</label>
+                            <input type="text" className="form-control" defaultValue={user.displayName} {...register("name")} required />
+                        </div>
+
+                        <div className="mb-3">
+                            <label for="exampleFormControlInput1" className="form-label">Email</label>
+                            <input type="email" className="form-control" defaultValue={user.email} {...register("email")} required />
+                        </div>
+
+                        <div className="mb-3">
+                            <label for="exampleFormControlInput1" className="form-label">Phone</label>
+                            <input type="text" className="form-control" {...register("phone")} required />
+                        </div>
+
+                        <div className="mb-3">
+                            <label for="exampleFormControlInput1" className="form-label">Address</label>
+                            <input type="text" className="form-control" {...register("address")} required />
                         </div>
                         
                         <input type="submit" value="Book Now"/>

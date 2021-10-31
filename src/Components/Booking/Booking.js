@@ -53,6 +53,9 @@ const Booking = () => {
                         <thead className="thead-dark">
                             <tr>
                             <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Address</th>
                             <th scope="col">Event</th>
                             <th scope="col">Price</th>
                             <th scope="col">Status</th>
@@ -65,6 +68,9 @@ const Booking = () => {
                                     return (
                                         <tr key={booking._id}>
                                             <td>{booking.name}</td>
+                                            <td>{booking.email}</td>
+                                            <td>{booking.phone}</td>
+                                            <td>{booking.address}</td>
                                             <td>{booking.event}</td>
                                             <td>{booking.price}</td>
                                             <td>{booking.status}</td>

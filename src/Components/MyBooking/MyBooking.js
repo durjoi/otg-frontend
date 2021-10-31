@@ -28,28 +28,34 @@ const Booking = () => {
                 <div className="row">
                     <div className="col-md-12">
                     <table className="table">
-                        <thead className="thead-dark">
-                            <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Event</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                bookings.map(booking => {
-                                    return (
-                                        <tr key={booking._id}>
-                                            <td>{booking.name}</td>
-                                            <td>{booking.event}</td>
-                                            <td>{booking.price}</td>
-                                            <td>{booking.status}</td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
+                            <thead className="thead-dark">
+                                <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Event</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    bookings.map(booking => {
+                                        return (
+                                            <tr key={booking._id}>
+                                                <td>{booking.name}</td>
+                                                <td>{booking.email}</td>
+                                                <td>{booking.phone}</td>
+                                                <td>{booking.address}</td>
+                                                <td>{booking.event}</td>
+                                                <td>{booking.price}</td>
+                                                <td>{booking.status}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
                         </table>
                     </div> 
                 </div>
