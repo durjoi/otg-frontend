@@ -14,7 +14,7 @@ import MyBooking from './Components/MyBooking/MyBooking';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <AuthProvider>
         <BrowserRouter>
         <Header></Header>
