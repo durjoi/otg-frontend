@@ -6,24 +6,35 @@ import Booking from './Components/Booking/Booking';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Header from './Components/Header/Header';
 import Login from './Components/Login/Login';
+import Footer from './Components/Footer/Footer';
+import Register from './Components/Register/Register';
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-      <Header></Header>
-        <Switch>
-          <Route exact path='/login'>
-            <Login></Login>
-          </Route>
+    <div className="App">
+      <AuthProvider>
+        <BrowserRouter>
+        <Header></Header>
+        <main>
+          <Switch>
+            <Route exact path='/login'>
+              <Login></Login>
+            </Route>
 
-          <PrivateRoute path="/booking">
-              <Booking></Booking>
-          </PrivateRoute>
+            <Route exact path='/register'>
+              <Register></Register>
+            </Route>
 
-        </Switch>
-      </BrowserRouter>
-    </AuthProvider>
+            <PrivateRoute path="/booking">
+                <Booking></Booking>
+            </PrivateRoute>
+
+          </Switch>
+          </main>
+          <Footer></Footer>
+        </BrowserRouter>
+      </AuthProvider>
+    </div>
   );
 }
 
