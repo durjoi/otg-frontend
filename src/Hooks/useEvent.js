@@ -13,7 +13,7 @@ const useEvent = () => {
         });
     }, []);
 
-    return [events, setEvents, loading];
+    return {events, setEvents, loading};
 
 };
 

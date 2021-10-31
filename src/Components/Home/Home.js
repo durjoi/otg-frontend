@@ -3,7 +3,7 @@ import useEvent from '../../Hooks/useEvent';
 import EventItem from '../EventItem/EventItem';
 
 const Home = () => {
-    const [ events ] = useEvent();
+    const { events, loading } = useEvent();
     return (
         <section>
             <div className="events_header">
@@ -18,6 +18,7 @@ const Home = () => {
             <div className="container pt-5 pb-5">
                 <div className="row">
                 {
+                    loading ? <div class="spinner-border text-warning m-auto"></div> :
                     events.map(event => <EventItem key={event._id} _id={event._id} title={event.title} img={event.img} subtitle={event.subtitle} price={event.price}></EventItem>)
                 }
                 </div>

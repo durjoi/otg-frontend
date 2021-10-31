@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useEvent from '../../Hooks/useEvent';
 
 const EventManagement = () => {
-    const [events, setEvents] = useEvent([]);
+    const {events, setEvents} = useEvent();
 
     const handleDelete = (event_id) => {
         const confirm = window.confirm("Want to Delete this Event?");
